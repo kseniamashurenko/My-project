@@ -4,6 +4,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class InputManager : MonoBehaviour
 {
+    private EventBus _eventBus;
     public static event Action OnSpacePressed;
     public static event Action OnLeftMouseButtonPressed;
     public static event Action<bool> OnShiftPressed;
@@ -11,6 +12,11 @@ public class InputManager : MonoBehaviour
     public static event Action<bool> OnLeftMouseButtonPressedDown;
     public static event Action<Vector2> OnMovementPressed;
     public static event Action<Vector2> OnLookPressed;
+
+    public void Initialized(EventBus eventBus )
+    {
+        _eventBus = eventBus;
+    }
 
 
     public void OnSpacePressede(CallbackContext context)
@@ -48,11 +54,11 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             Vector2 move = context.ReadValue<Vector2>();
-            OnMovementPressed?.Invoke(move);
+            _eventBus.TriggerMove(move);
         }
         if (context.canceled)
         {
-            OnMovementPressed?.Invoke(Vector2.zero);
+            _eventBus.TriggerMove(Vector2.zero);
         }
     }
     public void OnLookPressede(CallbackContext context)
