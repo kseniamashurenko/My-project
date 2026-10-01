@@ -10,6 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3997501630433515675}
   - component: {fileID: 4248606839172351581}
+  - component: {fileID: 7511886126326861675}
+  - component: {fileID: 5750100829726420270}
+  - component: {fileID: 3363911284431798602}
+  - component: {fileID: 2969264582897758507}
+  - component: {fileID: 522841005883922112}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -44,3 +49,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414b21f08e4ca2d409981a3691866421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCont
+  _playerAnim: {fileID: 2969264582897758507}
+  _playerMove: {fileID: 5750100829726420270}
+  _playerCamCont: {fileID: 3363911284431798602}
+  _playerShoot: {fileID: 7511886126326861675}
+--- !u!114 &7511886126326861675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049788396857194037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d66338f15b45044bd5a8c6b75d9aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShootCont
+--- !u!114 &5750100829726420270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049788396857194037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f39c25bdd46f543985cff61c28189c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMoveCont
+  _rb: {fileID: 522841005883922112}
+  _walkingSpeed: 5
+  _runningSpeed: 10
+--- !u!114 &3363911284431798602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049788396857194037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ca2bd8be3e5f14db34c30b31f17f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCameraCont
+--- !u!114 &2969264582897758507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049788396857194037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09ed457f87811f4d8c288ace025d785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAnim
+--- !u!54 &522841005883922112
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4049788396857194037}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

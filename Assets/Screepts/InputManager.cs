@@ -5,13 +5,13 @@ using static UnityEngine.InputSystem.InputAction;
 public class InputManager : MonoBehaviour
 {
     private EventBus _eventBus;
-    public static event Action OnSpacePressed;
-    public static event Action OnLeftMouseButtonPressed;
-    public static event Action<bool> OnShiftPressed;
-    public static event Action OnFPressed;
-    public static event Action<bool> OnLeftMouseButtonPressedDown;
-    public static event Action<Vector2> OnMovementPressed;
-    public static event Action<Vector2> OnLookPressed;
+    //public static event Action OnSpacePressed;
+    //public static event Action OnLeftMouseButtonPressed;
+    //public static event Action<bool> OnShiftPressed;
+    //public static event Action OnFPressed;
+    //public static event Action<bool> OnLeftMouseButtonPressedDown;
+    //public static event Action<Vector2> OnMovementPressed;
+    //public static event Action<Vector2> OnLookPressed;
 
     public void Initialized(EventBus eventBus )
     {
@@ -23,29 +23,22 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            OnSpacePressed?.Invoke();
+            _eventBus.TriggerSpace();
         }
     }
     public void OnLeftMouseButtonPresse(CallbackContext context)
     {
         if (context.performed)
         {
-            OnLeftMouseButtonPressed?.Invoke();
+            _eventBus.TriggerLeftMouseButton();
         }
-        if (context.started)
-        {
-            OnLeftMouseButtonPressedDown?.Invoke(true);
-        }
-        else if (context.canceled)
-        {
-            OnLeftMouseButtonPressedDown?.Invoke(false);
-        }
+       
     }
     public void OnFPresse(CallbackContext context)
     {
         if (context.started)
         {
-            OnFPressed?.Invoke();
+            _eventBus.TriggerF();
         }
     }
 
@@ -66,22 +59,23 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             Vector2 look = context.ReadValue<Vector2>();
-            OnLookPressed?.Invoke(look);
+            _eventBus.TriggerLook(look);
         }
         if (context.canceled)
         {
-            OnLookPressed?.Invoke(Vector2.zero);
+            _eventBus.TriggerLook(Vector2.zero);
         }
     }
     public void OnShiftPressede(CallbackContext context)
     {
         if (context.started)
         {
-            OnShiftPressed?.Invoke(true);
+            _eventBus.TriggerShif(true);
         }
         else if (context.canceled)
         {
-            OnShiftPressed?.Invoke(false);
+           _eventBus.TriggerShif(false);
         }
+
     }
 }
